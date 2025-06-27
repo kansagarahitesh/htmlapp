@@ -7,6 +7,12 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     # nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    cert-manager.io/issue-temporary-certificate: "true"
+    cert-manager.io/private-key-algorithm: rsa
+    cert-manager.io/private-key-size: "2048"
+    cert-manager.io/alt-names: test.ellkaydemo.com
+    cert-manager.io/common-name: test.ellkaydemo.com
+    cert-manager.io/additional-output-formats: "CombinedPEM"
 spec:
   ingressClassName: nginx
   tls:
