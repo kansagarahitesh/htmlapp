@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: htmlapp-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: "ca-issuer" # "letsencrypt-http"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    # nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - dev.ellkaydemo.com
+    secretName: htmlapp-tls # sampleapp-tls
+  rules:
+  - host: test.ellkaydemo.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: sample-app
+            port:
+              number: 80
