@@ -11,7 +11,7 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - dev.ellkaydemo.com
+    - test.ellkaydemo.com
     secretName: htmlapp-tls # sampleapp-tls
   rules:
   - host: test.ellkaydemo.com
