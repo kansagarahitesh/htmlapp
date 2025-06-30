@@ -9,10 +9,10 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - test.lkoasis.com
-      secretName: test-lkoasis-com-tls
+        - helloworld.lkoasisdev.com
+      secretName: helloworld-lkoasisdev-com-tls
   rules:
-    - host: test.lkoasis.com
+    - host: helloworld.lkoasisdev.com
       http:
         paths:
           - path: /
